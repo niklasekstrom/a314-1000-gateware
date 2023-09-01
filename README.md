@@ -5,10 +5,10 @@ A314-1000 is a variant of A314 for the Amiga 1000.
 This repository contains the gateware for the Trion T8 FPGA on the A314-1000 board.
 
 The hardware can be found here:
-[https://github.com/Eriond/A314-1000-PCB/](https://github.com/Eriond/A314-1000-PCB/).
+[https://github.com/Eriond/A314-1000-PCB](https://github.com/Eriond/A314-1000-PCB).
 
-The software is available in the `a314-1000` branch in the A314 repository:
-[https://github.com/niklasekstrom/a314/tree/a314-1000](https://github.com/niklasekstrom/a314/tree/a314-1000).
+The software is available in the A314 repository:
+[https://github.com/niklasekstrom/a314](https://github.com/niklasekstrom/a314).
 
 The HDL for A314-1000 is available in the [a314-1000](a314-1000) subdirectory.
 
@@ -35,7 +35,7 @@ is written to the FPGA using the JTAG interface. In the second step, the a314-10
 configuration is written to the flash memory using a SPI interface.
 After this, the FPGA will load the configuration from the flash memory on reset.
 
-A modified version of [openFPGALoader](https://trabucayre.github.io/openFPGALoader/) is
+A modified version of [openFPGALoader](https://trabucayre.github.io/openFPGALoader) is
 available that can perform both steps described above.
 The source for the modified version of openFPGALoader is available here:
 [https://github.com/niklasekstrom/openFPGALoader/tree/a314-1000-spi](https://github.com/niklasekstrom/openFPGALoader/tree/a314-1000-spi).
