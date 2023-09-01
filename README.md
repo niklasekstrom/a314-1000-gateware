@@ -23,9 +23,6 @@ The projects are compiled using a recent version of Efinity which is available f
 [https://www.efinixinc.com/products-efinity.html](https://www.efinixinc.com/products-efinity.html).
 The compiled binary files are available in the release for this repository.
 
-The Python script [hextobin.py](hextobin.py) is used to convert the output from Efinity,
-which is in hex format, to a binary format that is used by the programming software.
-
 ## Programming
 
 The programming is done from the Raspberry Pi on the A314-1000 board.

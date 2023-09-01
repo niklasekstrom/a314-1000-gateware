@@ -1,17 +1,19 @@
 #!/bin/bash
 
-if [ ! -f "./openFPGALoader" ]; then
-echo "The binary ./openFPGALoader does not exist"
+OFL_BIN=./openFPGALoader`getconf LONG_BIT`
+
+if [ ! -f ${OFL_BIN} ]; then
+echo "The binary ${OFL_BIN} does not exist"
 exit 1
 fi
 
-if [ ! -f "flash-connect.bin" ]; then
-echo "File flash-connect.bin does not exist"
+if [ ! -f "flash-connect.hex.bin" ]; then
+echo "File flash-connect.hex.bin does not exist"
 exit 1
 fi
 
-if [ ! -f "a314-1000.bin" ]; then
-echo "File a314-1000.bin does not exist"
+if [ ! -f "a314-1000.hex.bin" ]; then
+echo "File a314-1000.hex.bin does not exist"
 exit 1
 fi
 
@@ -32,7 +34,7 @@ gpioget gpiochip0 19 8
 # Write flash-connect configuration through JTAG interface.
 gpioset gpiochip0 3=0
 sleep 0.1
-./openFPGALoader -v -c libgpiod --pins 12:16:5:7 -m flash-connect.bin
+${OFL_BIN} -v -c libgpiod --pins 12:16:5:7 -m flash-connect.hex.bin
 sleep 0.1
 gpioget gpiochip0 3
 
@@ -40,7 +42,7 @@ gpioget gpiochip0 3
 sleep 0.1
 gpioset gpiochip0 17=1
 sleep 0.1
-./openFPGALoader -v -b a314-1000-spi a314-1000.bin
+${OFL_BIN} -v -b a314-1000-spi a314-1000.hex.bin
 
 # Restore all pins as inputs.
 gpioget gpiochip0 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
